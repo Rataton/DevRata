@@ -1,0 +1,24 @@
+.row
+	.large-12.columns
+			.row.fullwidth.inner-head
+				//img src="https://boletia.com/images/landing/boletia-conference.jpg"
+				h2.large-12.columns.text-center ¿Eres organizador de eventos?
+				h3.large-12.columns.text-center ¡Con Boletia puedes vender tus eventos en minutos! Es rápido y sencillo.
+				a.large-12.columns.button.radius href="/new-event" Crea tu primer evento ahora!
+.row 
+	h3.large-12.columns.text-center Eventos destacados del mes
+.row
+	ul.large-12.columns.no-bullet
+		- @events.each do |event|
+			-if event.tickets.last
+				== slim :event, locals: { event: event }
+.row
+	.large-12.columns
+		div.panel
+			h4 ¿Qué está pasando?
+			.row
+				.large-9.columns
+					p Nos gusta escuchar de ti y tus increibles sugerencias.
+
+				.large-3.columns
+					a.radius.button.right href="/contact-us" Contactanos

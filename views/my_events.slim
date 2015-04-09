@@ -1,0 +1,22 @@
+.row
+	- @events.each do |event|
+		.row.my-event
+			.large-12.columns
+				h2= event.name
+			.large-8.columns
+				ul.tasks
+					- event.tickets.each do |ticket|
+						li.ticket
+							h4.name-ticket #{ticket.nametype.capitalize}
+							h4 Precio: $#{ticket.price}.00
+							h4 Descripción: #{ticket.description}
+							h4 Número máximo de boletos: #{ticket.capacity}
+			.large-4.columns
+				.side-bar
+					h3 Nuevo tipo de boleto
+					form.new-list action="/new-event/#{event.id}" method="POST"
+						input type="text" placeholder="nombre" name="ticket[nametype]"
+						input type="text" placeholder="precio" name="ticket[price]"
+						input type="text" placeholder="descripcion" name="ticket[description]"
+						input type="text" placeholder="Número máximo de boletos:" name="ticket[capacity]"
+						input.button type="submit" value="Crear nuevo"

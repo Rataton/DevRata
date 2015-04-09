@@ -1,0 +1,18 @@
+div.large-4.columns 
+	a href="event/info/#{event.id}"
+		img src="#{event.image}"
+	.event-content
+		i.city #{event.city}
+		h4
+			a href="event/info/#{event.id}" #{event.name.capitalize}
+		ul
+			li
+				i.fa.fa-calendar-o.mr-10
+				span #{event.date}
+			li
+				i.fa.fa-map-marker.mr-10
+				span #{event.place}
+		p
+		p
+		.row
+  		a.button.radius.small href="event/new-booking/#{event.id}" Comprar boletos!
